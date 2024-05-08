@@ -1,4 +1,4 @@
-# RoboTAP
+# BootsTAP
 
 This is the repository that contains source code for the [BootsTAP website](https://bootstap.github.io).
 
