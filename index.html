@@ -308,7 +308,7 @@
             <p>
               Given a set of active points for each stage of the demo, we next construct a &ldquo;motion plan&rdquo; which defines the full behavior.  Note that the motion plan simply consists of a set of &rdquo;active points,&ldquo; the paths they followed during the demonstrations, as well as gripper actions at the end of each stage.  Therefore, the inferred behavior can be easily understood and potentially even edited if desired, although we made no edits for the behaviors shown in this paper.
             </p>
-            <img src="./static/images/overview_figure_v2.svg" class="interpolation-image" alt="TAPIR architecture." />
+            <img src="./static/images/overview.png" class="interpolation-image" alt="BootsTAP architecture." />
             <p>
               Given the motion plan, RoboTAP can run on the robot by imitating each stage using standard visual servoing. That is, we compute an approximate Jacobian of the motion of the points with respect to gripper motions, and execute actions which bring the points toward the trajectories seen in the demos.  Here's an example of the full behavior executed on the robot (5x speed):
             </p>
