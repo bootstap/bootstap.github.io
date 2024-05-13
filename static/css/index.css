@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Optimistic Text', sans-serif;
 }
 
 
@@ -24,7 +24,7 @@ body {
 }
 
 .teaser {
-  font-family: 'Google Sans', sans-serif;
+  font-family: 'Optimistic Text', sans-serif;
 }
 
 
@@ -48,11 +48,11 @@ body {
 }
 
 .publication-title {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Optimistic Text', sans-serif;
 }
 
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Optimistic Text', sans-serif;
 }
 
 .publication-venue {
@@ -97,7 +97,6 @@ body {
 
     overflow: hidden;
     border-radius: 10px !important;
-    margin-bottom: 10px;
 }
 
 .publication-video iframe {
@@ -113,6 +112,8 @@ body {
 
 .results-carousel {
   overflow: hidden;
+  width: 800px;
+  margin: auto;
 }
 
 .results-carousel .item {
@@ -155,23 +156,4 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
-}
-
-/*Enable the task gallery to shrink to a single column when viewed from phone*/
-.column {
-  float: left;
-  width: 50%;
-  padding: 0px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and (max-width: 800px) {
-  .column {
-    width: 100%;
-  }
 }

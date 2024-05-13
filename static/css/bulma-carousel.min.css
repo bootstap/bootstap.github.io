@@ -62,7 +62,8 @@
     position: relative
 }
 
-.slider-container .slider-item .video-container.is-1by1, .slider-container .slider-item .video-container.is-square {
+.slider-container .slider-item .video-container.is-1by1,
+.slider-container .slider-item .video-container.is-square {
     padding-top: 100%
 }
 
@@ -74,7 +75,9 @@
     padding-top: 42.857143%
 }
 
-.slider-container .slider-item .video-container embed, .slider-container .slider-item .video-container iframe, .slider-container .slider-item .video-container object {
+.slider-container .slider-item .video-container embed,
+.slider-container .slider-item .video-container iframe,
+.slider-container .slider-item .video-container object {
     position: absolute;
     top: 0;
     left: 0;
@@ -82,7 +85,8 @@
     height: 100% !important
 }
 
-.slider-navigation-next, .slider-navigation-previous {
+.slider-navigation-next,
+.slider-navigation-previous {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +99,7 @@
     border-radius: 25091983px;
     box-shadow: 0 2px 5px #3232321a;
     top: 50%;
-    margin-top: -20px;
+    margin-top: -50px;
     left: 0;
     cursor: pointer;
     transition: opacity .3s, -webkit-transform .3s;
@@ -103,17 +107,20 @@
     transition: transform .3s, opacity .3s, -webkit-transform .3s
 }
 
-.slider-navigation-next:hover, .slider-navigation-previous:hover {
+.slider-navigation-next:hover,
+.slider-navigation-previous:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2)
 }
 
-.slider-navigation-next.is-hidden, .slider-navigation-previous.is-hidden {
+.slider-navigation-next.is-hidden,
+.slider-navigation-previous.is-hidden {
     display: none;
     opacity: 0
 }
 
-.slider-navigation-next svg, .slider-navigation-previous svg {
+.slider-navigation-next svg,
+.slider-navigation-previous svg {
     width: 25%
 }
 
@@ -129,7 +136,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 0;
+    bottom: 120px;
     left: 0;
     right: 0;
     padding: .5rem 1rem;
@@ -150,7 +157,8 @@
     cursor: pointer
 }
 
-.slider-pagination .slider-page.is-active, .slider-pagination .slider-page:hover {
+.slider-pagination .slider-page.is-active,
+.slider-pagination .slider-page:hover {
     -webkit-transform: scale(1.4);
     transform: scale(1.4)
 }
@@ -165,7 +173,9 @@
     position: relative
 }
 
-.hero.has-carousel+.hero-body, .hero.has-carousel+.hero-footer, .hero.has-carousel+.hero-head {
+.hero.has-carousel+.hero-body,
+.hero.has-carousel+.hero-footer,
+.hero.has-carousel+.hero-head {
     z-index: 10;
     overflow: hidden
 }
