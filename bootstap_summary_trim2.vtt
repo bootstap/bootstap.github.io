@@ -1,0 +1,221 @@
+WEBVTT
+
+00:00:00.480 --> 00:00:04.800
+We present BootsTAP: Bootstrapped 
+Training for Tracking Any Point
+
+00:00:04.800 --> 00:00:10.600
+In this visualization, you may not be able to see 
+what’s depicted. However, once you see the motion,
+
+00:00:10.600 --> 00:00:15.560
+it’s clear that there’s a person walking across 
+a floor. Psychology experiments like this one,
+
+00:00:15.560 --> 00:00:20.280
+from Johansson, have made it clear that people 
+can track things even when appearance isn’t enough
+
+00:00:20.280 --> 00:00:25.760
+to recognize them. That tracking then gives 
+people information about space, affordance,
+
+00:00:25.760 --> 00:00:31.560
+and physics. Thus, the goal of Tracking 
+Any Point, or TAP, is to enable detailed,
+
+00:00:31.560 --> 00:00:37.600
+long-term tracking of surfaces in any scene.
+Prior algorithms for TAP use exclusively
+
+00:00:37.600 --> 00:00:43.360
+synthetic data. However, these datasets aren’t 
+a perfect match for the real world; algorithms
+
+00:00:43.360 --> 00:00:48.800
+may memorize the statistics of these datasets, 
+and get confused when real scenes are different,
+
+00:00:48.800 --> 00:00:54.800
+leading to unreliable performance. Complex and 
+strongly-biased algorithms are required to prevent
+
+00:00:54.800 --> 00:01:02.000
+overfitting to the domain. However, for both 
+humans and machines, real-world data is abundant.
+
+00:01:02.000 --> 00:01:07.520
+Here, we propose an algorithm that can use this 
+data to achieve state-of-the-art performance.
+
+00:01:07.520 --> 00:01:11.920
+BootsTAP is a surprisingly simple 
+semi-supervised learning algorithm.
+
+00:01:11.920 --> 00:01:16.200
+It’s based on the observation that tracks are 
+equivariant to spatial transformations of the
+
+00:01:16.200 --> 00:01:21.360
+video like affine transformations, and they’re 
+invariant to non-spatial transformations like
+
+00:01:21.360 --> 00:01:27.480
+JPEG compression. Therefore, if an algorithm 
+makes a prediction on one view of a video,
+
+00:01:27.480 --> 00:01:32.600
+we can compute what the prediction should be 
+under affine transformation and degradation.
+
+00:01:32.600 --> 00:01:36.800
+If the model’s prediction on the transformed 
+video doesn’t match, there is a signal for
+
+00:01:36.800 --> 00:01:42.240
+learning. However, we find empirically that 
+simply training the model to provide matching
+
+00:01:42.240 --> 00:01:47.120
+outputs for both videos, in a Siamese network 
+fashion, results in the model discovering
+
+00:01:47.120 --> 00:01:53.880
+trivial solutions and collapsing. However, 
+student-teacher learning avoids the collapse.
+
+00:01:53.880 --> 00:01:58.240
+We start with a strong TAPIR model which is 
+trained using synthetic data, following prior
+
+00:01:58.240 --> 00:02:03.440
+state-of-the-art work. The only difference is 
+that we increase the capacity of the backbone,
+
+00:02:03.440 --> 00:02:07.480
+as we will need extra capacity to absorb 
+the real-world data–an addition which
+
+00:02:07.480 --> 00:02:13.480
+empirically provides little benefit given only 
+synthetic data. for the bootstrapping phase,
+
+00:02:13.480 --> 00:02:19.360
+we continue to train the same model with the 
+same loss, but we add real-world data . We apply
+
+00:02:19.360 --> 00:02:24.800
+a teacher TAPIR model, initialized in the same 
+way as the student, using random query points,
+
+00:02:24.800 --> 00:02:31.360
+to get tracks to use as pseudo-labels. Then we 
+sample another query point along the trajectory,
+
+00:02:31.360 --> 00:02:36.560
+and transform both the track and the video with 
+an affine transformation, and apply corruptions
+
+00:02:36.560 --> 00:02:42.160
+to make the job more difficult for the student. 
+The student then makes a prediction, and we use
+
+00:02:42.160 --> 00:02:48.000
+the teacher’s pseudo-labels as a target, using 
+a loss that’s similar to the supervised setting.
+
+00:02:48.000 --> 00:02:53.120
+The student is updated via gradient descent. 
+The teacher is updated with an exponential
+
+00:02:53.120 --> 00:02:58.560
+moving average of the student, which ensures it 
+produces stable, low-variance predictions even
+
+00:02:58.560 --> 00:03:04.200
+if the student has a high learning rate.
+As in the supervised case, the loss is a
+
+00:03:04.200 --> 00:03:10.200
+combination of a Huber loss for position and a 
+classification loss for occlusion estimation.
+
+00:03:10.200 --> 00:03:15.800
+The main difference is that targets come from 
+the teacher network. However, in rare cases,
+
+00:03:15.800 --> 00:03:21.440
+the teacher predictions may have very large 
+errors. To prevent training on these cases,
+
+00:03:21.440 --> 00:03:25.920
+we apply a cycle consistency check . If 
+the student’s prediction is further than
+
+00:03:25.920 --> 00:03:31.880
+a threshold from the teacher’s query point on 
+the query frame, then the track is ignored.
+
+00:03:31.880 --> 00:03:35.920
+Quantitatively, our model provides the 
+state-of-the-art performance across the TAP-Vid
+
+00:03:35.920 --> 00:03:42.160
+benchmarks, and like TAPIR, it’s still fast: 
+on an A100, we can track 10,000 points across
+
+00:03:42.160 --> 00:03:49.160
+a 50-frame, 256-by-256 video in 6 seconds. Our 
+online model tracks 400 points at 30 frames per
+
+00:03:49.160 --> 00:03:55.000
+second, all while maintaining independence between 
+the predictions for different query points.
+
+00:03:55.000 --> 00:03:59.720
+In real scenes, we see that Bootstrapping improves 
+on TAPIR both in terms of precise localization,
+
+00:04:00.280 --> 00:04:04.880
+and also in terms of the number of points 
+that are lost. Note that TAPIR loses
+
+00:04:04.880 --> 00:04:08.320
+points on the fox’s legs
+whereas they are more
+
+00:04:08.320 --> 00:04:13.720
+reliably detected after bootstrapping.
+Similarly in this street scene, note that
+
+00:04:13.720 --> 00:04:25.680
+TAPIR loses many of the points on the leg.
+In robotics, we see that grids of points
+
+00:04:25.680 --> 00:04:29.720
+maintain their structure even 
+though this gear has weak texture.
+
+00:04:37.840 --> 00:04:41.480
+Bootstrapping can also improve 
+results given specific datasets:
+
+00:04:41.480 --> 00:04:44.720
+for the right model, we did an extra 
+round of training specifically on
+
+00:04:44.720 --> 00:04:58.480
+the Libero robotic manipulation dataset.
+Visit our webpage for more visualizations,
+
+00:04:58.480 --> 00:05:02.680
+or to download and try our state-of-the-art 
+models. And be sure to check out the many
+
+00:05:02.680 --> 00:05:07.440
+recent and surprising applications of Tracking 
+Any Point, including video editing, robotics,
+
+00:05:07.440 --> 00:05:11.000
+3D reconstruction, and much 
+more. Thanks for listening.
