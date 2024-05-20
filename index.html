@@ -149,6 +149,7 @@
     </div>
   </section>
 
+  <!--
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
@@ -163,6 +164,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -180,6 +182,7 @@
       <!--/ Abstract. -->
     </div>
   </section>
+
   <section class="section">
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
@@ -187,8 +190,8 @@
           <h2 class="title is-3">Video Summary</h2>
           <div class="publication-video">
             <video id="summary" playsinline controls muted height="100%">
-              <source src="https://storage.googleapis.com/dm-tapnet/robotap/https://storage.googleapis.com/dm-tapnet/bootstap/videos/summary_video_v6.mp4"
-                type="video/mp4">
+              <source src="https://storage.googleapis.com/dm-tapnet/bootstap/bootstap_summary_trim2.mkv" type="video/mp4">
+              <track label="English" kind="subtitles" srclang="en" src="bootstap_summary_trim2.vtt" default />
             </video>
           </div>
         </div>
@@ -197,12 +200,12 @@
   </section>
 
   <!-- RoboCAT-NIST -->
-  <section class="hero is-light is-small">
+  <section class="hero is-small">
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <h2 class="title is-3">RoboCAT-NIST</h2>
-          <div class="hero-body-justified">In this study, we apply both TAPIR (left) and BootsTAPIR (right) to very
+          <h2 class="title is-3">Video Comparisons</h2>
+          <div class="hero-body-justified"><b>RoboCAT-Nist:</b> In this study, we apply both TAPIR (left) and BootsTAPIR (right) to very
             challenging sequences of NIST gear insertion, as viewed from the gripper camera. Due to the lack of texture
             and the rotational symmetry, the correspondence is difficult to perceive, leading to many failures from the original
             TAPIR model. We manually select query points on the gears by automatically selecting a grid of red pixels on
@@ -391,8 +394,7 @@
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <h2 class="title is-3">Libero</h2>
-          <div class="hero-body-justified">In this experiment, we apply TAPIR (left), BootsTAPIR (center), and
+          <div class="hero-body-justified"><b>Libero:</b> In this experiment, we apply TAPIR (left), BootsTAPIR (center), and
             a BootsTAPIR further finetuned on Libero (BootsTAPIR-Libero; see supplementary pdf) to Libero videos.  This dataset has
             no ground truth, so we apply the algorithms to query points sampled in a semi-dense grid on the first
             frame.  We see that BootsTAP on internet data improves performance, especially scale invariance, but
@@ -544,13 +546,12 @@
   </section>
 
   <!-- TAP-Vid DAVIS -->
-  <section class="hero is-light is-small">
+  <section class="hero is-small">
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <h2 class="title is-3">TAP-Vid DAVIS</h2>
-          <div class="hero-body-justified">We show some examples which illustrate the performance of BootsTAPIR and
-            TAPIR on TAP-Vid-DAVIS. We sample queries using the query-first approach; note that some points begin very close to
+          <div class="hero-body-justified"><b>TAP-Vid DAVIS:</b>
+            We sample queries using the query-first approach; note that some points begin very close to
             object boundaries which means the methods occasionally track the wrong object.  We notice that the main
             improvements come from more accurate occlusion prediction
             and more precise localization. In addition, we observe that BootsTAPIR is more robust to large scale changes
@@ -737,8 +738,7 @@
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <h2 class="title is-3">RoboTAP</h2>
-          <div class="hero-body-justified">Finally, we show some examples from RoboTAP where BootsTAPIR improves performance.
+          <div class="hero-body-justified"><b>RoboTAP:</b> Finally, we show some examples from RoboTAP where BootsTAPIR improves performance.
           We use the same plotting scheme as for TAP-Vid-DAVIS, as there is ground truth available in this dataset.</div>
           <div class="container" id="container-carousel 2">
             <div id="results-carousel 2" class="carousel results-carousel">
@@ -877,58 +877,40 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="hero is-small">
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <h2 class="title is-3">The BootsTAP Approach</h2>
-            <div class="content has-text-justified">
-            <img src="./static/images/overview.png" class="interpolation-image" alt="BootsTAP architecture." />
-            <p>
-              Given the motion plan, RoboTAP can run on the robot by imitating each stage using standard visual servoing. That is, we compute an approximate Jacobian of the motion of the points with respect to gripper motions, and execute actions which bring the points toward the trajectories seen in the demos.  Here's an example of the full behavior executed on the robot (5x speed):
-            </p>
-          </div>
-        </div>
-      </div>
-      <br/>
-
-      <!-- Concurrent Work. -->
-      <div class="is-centered">
-        <div class="is-full-width">
-          <h2 class="title is-3">Related Links</h2>
+ 
+          <h4 class="title is-3">Some other cool projects using TAP</h2>
 
           <div class="content has-text-justified">
             <p>
-              <a href="https://deepmind-tapir.github.io/">TAPIR: Tracking Any Point with per-frame Initialization and temporal Refinement</a> is the foundational visual 
-              perception model for this work. It provides fast and accurate tracking of any point in a video.
+              <a href="https://deepmind-tapir.github.io/">TAPIR</a> is the foundational visual 
+              perception model for this work. It provides fast and accurate tracking of any point in a video, and has some cool video generation applications.
             </p>            
             <p>
-              <a href="https://danieltakeshi.github.io/2019/11/09/paper-set-descriptors/">Dense Object Nets and Descriptors for Robotic Manipulation</a> was an
-              inspiration for this work, but it requires to learn an embedding for each object class.
+            <a href="https://robotap.github.io/">RoboTAP</a>, <a href="https://xingyu-lin.github.io/atm/">ATM</a>, and <a href="https://homangab.github.io/track2act/">Track2Act</a> demonstrate how TAP can transform few-shot learning in robotics.
             </p>
             <p>
-              <a href="https://sites.google.com/view/2020-s3k">S3K: Self-Supervised Semantic Keypoints for Robotic Manipulation via Multi-View Consistency</a> demonstrates how
-              multi-view information can be used to learn a useful keypoint tracker from a small number of human annotations. This is demonstrated in several robot settings, but each
-              keypoint does require a human annotations.
+              <a href="https://em-yu.github.io/research/videodoodles/">VideoDoodles</a> shows how TAP can enable intuitive animations on top of real videos.
             </p>
             <p>
-              <a href="https://sites.google.com/view/2021-tack">TACK: Few-Shot Keypoint Detection as Task Adaptation via Latent Embeddings</a> formulates 3D keypoint
-              tracking as a combination of task adaptation and conditional autoencoder problems. While this model is precise and can handle occlusions it must be trained on a specific
-              object class.
+            <a href="https://omnimotion.github.io/">OmniMotion</a>, <a href="https://henry123-boy.github.io/SpaTracker/">SpaTracker</a>, and <a href="https://vggsfm.github.io/">VGGSfM</a> show how TAP can contribute to 3D scene understanding.
             </p>
           </div>
         </div>
       </div>
-      <br/>
+    </div>
   </section>
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{vecerik2023robotap,
-    author    = {Mel Vecerik and Carl Doersch and Yi Yang and Todor Davchev and Yusuf Aytar and Guangyao Zhou and Raia Hadsell and Lourdes Agapito and Jon Scholz},
-    title     = {RoboTAP: Tracking Arbitrary Points for Few-Shot Visual Imitation},
+      <pre><code>@article{doersch2024bootstap,
+    author    = {Carl Doersch and Pauline Luc and Yi Yang and Dilara Gokay and Skanda Koppula and Ankush Gupta and Joseph Heyward and Ignacio Rocco and Ross Goroshin and Jo&atilde;o Carreira and Andrew Zisserman},
+    title     = {{BootsTAP}: Bootstrapped Training for Tracking Any Point},
     journal   = {arXiv},
-    year      = {2023},
+    year      = {2024},
   }</code></pre>
     </div>
   </section>
