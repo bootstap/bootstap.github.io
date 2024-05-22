@@ -199,6 +199,496 @@
     </div>
   </section>
 
+  <!-- TAP-Vid DAVIS -->
+  <section class="hero is-small">
+    <div class="container is-max-desktop">
+      <div class="is-centered has-text-centered">
+        <div class="is-four-fifths">
+          <div class="hero-body-justified"><b>TAP-Vid DAVIS:</b>
+            We sample queries using the query-first approach; note that some points begin very close to
+            object boundaries which means the methods occasionally track the wrong object.  We notice that the main
+            improvements come from more accurate occlusion prediction
+            and more precise localization. In addition, we observe that BootsTAPIR is more robust to large scale changes
+            than the baseline TAPIR model.  In the displays, we don't plot points that the methods mark as occluded.  We include
+            a line segment connecting the ground truth to the prediction where the ground truth is marked visible, showing the scale
+            of the errors.  If a method predicts a point as visible when the ground truth is occluded, we plot the prediction with an x.</div>
+          <div class="container" id="container-carousel 2">
+            <div id="results-carousel 2" class="carousel results-carousel">
+              <!-- Card 1 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/scooter-black_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    A common failure mode of TAPIR is losing track of points across large changes in scale. Note that
+                    BootsTAPIR keeps track of points for longer, especially on the rider's knee.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/dance-twirl_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    This extremely challenging video requires tracking points on the body even as the pose changes and
+                    the clothing deforms. Note the point on the belly, which TAPIR loses entirely, and the point on the
+                    forehead, which TAPIR predicts as drifting to the back of the head.
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- Card 3 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/camel_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    BootsTAPIR can also increase the precision even for points where TAPIR is close to correct. Note in
+                    particular the point on the back of the spot on the camel's knee and the one on the back of its
+                    neck, which are closer to the ground truth for BootsTAPIR.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/loading_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    Here BootsTAPIR tracks points for longer: note the left wrist of the foreground person.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/paragliding-launch_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    Again BootsTAPIR relocalizes points that TAPIR thinks are occluded throughout the entire video.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/lab-coat_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    The proposed BootsTAPIR method is more robust to large scale changes.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RoboTAP -->
+  <section class="hero is-small">
+    <div class="container is-max-desktop">
+      <div class="is-centered has-text-centered">
+        <div class="is-four-fifths">
+          <div class="hero-body-justified"><b>RoboTAP:</b> Finally, we show some examples from RoboTAP where BootsTAPIR improves performance.
+          We use the same plotting scheme as for TAP-Vid-DAVIS, as there is ground truth available in this dataset.</div>
+          <div class="container" id="container-carousel 2">
+            <div id="results-carousel 2" class="carousel results-carousel">
+
+
+              <!-- Card 1 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/plush1-robot0_camera1_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    There are many white patches of fur on the plushie with relatively weak distinguising features.  Therefore, TAPIR loses track of one plushie almost entirely at the end of the video, while BootsTAPIR recovers the performance.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/shoe_colors-sawyer_camera2_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    TAPIR mostly loses track of the shoe once it's grasped.  BootsTAPIR, however, finds many of the points on the shoe even after they move out of the frame.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/nist_board1-robot0_camera2_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    This challenging reflective surface causes problems for both methods, as it is difficult to rely on low level cues.  However, there are many points that TAPIR loses entirely, which BootsTAPIR recovers, including on the rectangular structure in the bottom left.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/gear_v2_16-basket_front_right_rgb_img-1_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    In this example, TAPIR tracks the wrong peg; it's possible that BootsTAPIR has learned better motion priors from real data in order to determine which is the correct peg.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Card 5 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
+                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
+                      <td style="text-align: center; width: 33%;"><span
+                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/gearsblocks1-wrist_back_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    In another example of gears, we see that TAPIR loses track of many gear points, but BootsTAPIR maintains them.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Libero -->
+  <section class="hero is-small">
+    <div class="container is-max-desktop">
+      <div class="is-centered has-text-centered">
+        <div class="is-four-fifths">
+          <div class="hero-body-justified"><b>Libero:</b> In this experiment, we apply TAPIR (left), BootsTAPIR (center), and
+            a BootsTAPIR further finetuned on Libero (BootsTAPIR-Libero; see supplementary pdf) to Libero videos.  This dataset has
+            no ground truth, so we apply the algorithms to query points sampled in a semi-dense grid on the first
+            frame.  We see that BootsTAP on internet data improves performance, especially scale invariance, but
+            training specifically on Libero improves results even further.
+          </div>
+
+          <div class="container" id="container-carousel 2">
+            <div id="results-carousel 2" class="carousel results-carousel">
+
+
+              <!-- Card 1 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_24.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    For both the grid of points on the countertop and the points on the bowl, TAPIR loses many points quite quickly.  BootsTAPIR improves on this, keeping more points, but for BootsTAPIR, the grid structure remains visible on both and relatively few points are lost.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_73.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    The appearance of the book changes substantially due to the way the pages are rendered.  TAPIR loses most of these points; BootsTAPIR keeps points near the book cover, but BootsTAPIR-Libero keeps quite a few even on the pages.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_21.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    Due to the large changes in scale on the stovetop, TAPIR loses many points.  BootsTAPIR recovers some of them, but BootsTAPIR-Libero keeps enough to see the grid structure.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_72.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    Note in particular the points on the inside of the cup.  TAPIR loses all of the points after the change in pose; BootsTAPIR keeps more of them, but the positions end up wrong after a while, with the blue point sliding down relative to where it should be toward the end of the video.  BootsTAPIR-Libero fixes this problem.
+                  </div>
+                </div>
+              </div>
+            <!-- Card 5 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_61.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    TAPIR not only loses many points on the chocolate pudding, but also on the background as the camera zooms in.  BootsTAPIR improves on this, but still makes errors, including tracking the wrong edge of the drawer.  BootsTAPIR-Libero fixes this error, and also tracks the points on the pudding for a larger number of frames.
+                  </div>
+                </div>
+              </div>
+              <!-- Card 6 -->
+              <div class="card">
+                <div class="card-image">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 33%;">TAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
+                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
+                    </tr>
+                  </table>
+                  <!-- <figure class="image is-16by9 is-covered"> -->
+                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
+                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_46.mp4" type="video/mp4">
+                  </video>
+                  <!-- </figure> -->
+                </div>
+                <div class="card-content">
+                  <div class="item__description">
+                    Here BootsTAPIR improves tracking of the points on the cup, and BootsTAPIR-Libero improves them even further.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- RoboCAT-NIST -->
   <section class="hero is-small">
     <div class="container is-max-desktop">
@@ -386,496 +876,6 @@
     </div>
   </section>
 
-
-
-
-  <!-- Libero -->
-  <section class="hero is-small">
-    <div class="container is-max-desktop">
-      <div class="is-centered has-text-centered">
-        <div class="is-four-fifths">
-          <div class="hero-body-justified"><b>Libero:</b> In this experiment, we apply TAPIR (left), BootsTAPIR (center), and
-            a BootsTAPIR further finetuned on Libero (BootsTAPIR-Libero; see supplementary pdf) to Libero videos.  This dataset has
-            no ground truth, so we apply the algorithms to query points sampled in a semi-dense grid on the first
-            frame.  We see that BootsTAP on internet data improves performance, especially scale invariance, but
-            training specifically on Libero improves results even further.
-          </div>
-
-          <div class="container" id="container-carousel 2">
-            <div id="results-carousel 2" class="carousel results-carousel">
-
-
-              <!-- Card 1 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_24.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    For both the grid of points on the countertop and the points on the bowl, TAPIR loses many points quite quickly.  BootsTAPIR improves on this, keeping more points, but for BootsTAPIR, the grid structure remains visible on both and relatively few points are lost.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 2 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_73.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    The appearance of the book changes substantially due to the way the pages are rendered.  TAPIR loses most of these points; BootsTAPIR keeps points near the book cover, but BootsTAPIR-Libero keeps quite a few even on the pages.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 3 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_21.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    Due to the large changes in scale on the stovetop, TAPIR loses many points.  BootsTAPIR recovers some of them, but BootsTAPIR-Libero keeps enough to see the grid structure.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_72.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    Note in particular the points on the inside of the cup.  TAPIR loses all of the points after the change in pose; BootsTAPIR keeps more of them, but the positions end up wrong after a while, with the blue point sliding down relative to where it should be toward the end of the video.  BootsTAPIR-Libero fixes this problem.
-                  </div>
-                </div>
-              </div>
-            <!-- Card 5 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_61.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    TAPIR not only loses many points on the chocolate pudding, but also on the background as the camera zooms in.  BootsTAPIR improves on this, but still makes errors, including tracking the wrong edge of the drawer.  BootsTAPIR-Libero fixes this error, and also tracks the points on the pudding for a larger number of frames.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 6 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;">TAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;">BootsTAPIR-Libero</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/libero/task_1_46.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    Here BootsTAPIR improves tracking of the points on the cup, and BootsTAPIR-Libero improves them even further.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAP-Vid DAVIS -->
-  <section class="hero is-small">
-    <div class="container is-max-desktop">
-      <div class="is-centered has-text-centered">
-        <div class="is-four-fifths">
-          <div class="hero-body-justified"><b>TAP-Vid DAVIS:</b>
-            We sample queries using the query-first approach; note that some points begin very close to
-            object boundaries which means the methods occasionally track the wrong object.  We notice that the main
-            improvements come from more accurate occlusion prediction
-            and more precise localization. In addition, we observe that BootsTAPIR is more robust to large scale changes
-            than the baseline TAPIR model.  In the displays, we don't plot points that the methods mark as occluded.  We include
-            a line segment connecting the ground truth to the prediction where the ground truth is marked visible, showing the scale
-            of the errors.  If a method predicts a point as visible when the ground truth is occluded, we plot the prediction with an x.</div>
-          <div class="container" id="container-carousel 2">
-            <div id="results-carousel 2" class="carousel results-carousel">
-              <!-- Card 1 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/scooter-black_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    A common failure mode of TAPIR is losing track of points across large changes in scale. Note that
-                    BootsTAPIR keeps track of points for longer, especially on the rider's knee.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/dance-twirl_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    This extremely challenging video requires tracking points on the body even as the pose changes and
-                    the clothing deforms. Note the point on the belly, which TAPIR loses entirely, and the point on the
-                    forehead, which TAPIR predicts as drifting to the back of the head.
-                  </div>
-                </div>
-              </div>
-
-
-
-              <!-- Card 3 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/camel_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    BootsTAPIR can also increase the precision even for points where TAPIR is close to correct. Note in
-                    particular the point on the back of the spot on the camel's knee and the one on the back of its
-                    neck, which are closer to the ground truth for BootsTAPIR.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/loading_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    Here BootsTAPIR tracks points for longer: note the left wrist of the foreground person.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 5 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/paragliding-launch_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    Again BootsTAPIR relocalizes points that TAPIR thinks are occluded throughout the entire video.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 6 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/davis/lab-coat_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    The proposed BootsTAPIR method is more robust to large scale changes.
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <!-- RoboTAP -->
-  <section class="hero is-small">
-    <div class="container is-max-desktop">
-      <div class="is-centered has-text-centered">
-        <div class="is-four-fifths">
-          <div class="hero-body-justified"><b>RoboTAP:</b> Finally, we show some examples from RoboTAP where BootsTAPIR improves performance.
-          We use the same plotting scheme as for TAP-Vid-DAVIS, as there is ground truth available in this dataset.</div>
-          <div class="container" id="container-carousel 2">
-            <div id="results-carousel 2" class="carousel results-carousel">
-
-
-              <!-- Card 1 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/plush1-robot0_camera1_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    There are many white patches of fur on the plushie with relatively weak distinguising features.  Therefore, TAPIR loses track of one plushie almost entirely at the end of the video, while BootsTAPIR recovers the performance.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 2 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/shoe_colors-sawyer_camera2_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    TAPIR mostly loses track of the shoe once it's grasped.  BootsTAPIR, however, finds many of the points on the shoe even after they move out of the frame.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 3 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/nist_board1-robot0_camera2_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    This challenging reflective surface causes problems for both methods, as it is difficult to rely on low level cues.  However, there are many points that TAPIR loses entirely, which BootsTAPIR recovers, including on the rectangular structure in the bottom left.
-                  </div>
-                </div>
-              </div>
-              <!-- Card 4 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/gear_v2_16-basket_front_right_rgb_img-1_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    In this example, TAPIR tracks the wrong peg; it's possible that BootsTAPIR has learned better motion priors from real data in order to determine which is the correct peg.
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Card 5 -->
-              <div class="card">
-                <div class="card-image">
-                  <table style="width: 100%;">
-                    <tr>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: cyan;">&#9650</span> BootsTAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span style="font-size: xx-large"> </span><span
-                          style="color: red; font-size: x-large;">&#9632</span> TAPIR</td>
-                      <td style="text-align: center; width: 33%;"><span
-                          style="color: lime; font-size: xx-large;">+</span> Ground-truth</td>
-                    </tr>
-                  </table>
-                  <!-- <figure class="image is-16by9 is-covered"> -->
-                  <video style="width: 100%;" poster="" id="377" autoplay controls muted loop playsinline height="100%">
-                    <source src="https://storage.googleapis.com/dm-tapnet/bootstap/videos/robotap/gearsblocks1-wrist_back_rgb_img_gt_vs_bootstapir_vs_tapir.mp4" type="video/mp4">
-                  </video>
-                  <!-- </figure> -->
-                </div>
-                <div class="card-content">
-                  <div class="item__description">
-                    In another example of gears, we see that TAPIR loses track of many gear points, but BootsTAPIR maintains them.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="hero is-small">
     <div class="container is-max-desktop">
