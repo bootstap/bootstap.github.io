@@ -174,7 +174,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              To endow models with greater understanding of physics and motion, it is useful to enable them to perceive how solid surfaces move and deform in real scenes. This can be formalized as Tracking-Any-Point (TAP), which requires the algorithm to be able to track any point corresponding to a solid surface in a video, potentially densely in space and time. Large-scale ground-truth training data for TAP is only available in simulation, which currently has limited variety of objects and motion. In this work, we demonstrate how large-scale, unlabeled, uncurated real-world data can improve a TAP model with minimal architectural changes, using a self-supervised student-teacher setup. We demonstrate state-of-the-art performance on the TAP-Vid benchmark surpassing previous results by a wide margin: for example, TAP-Vid-DAVIS performance improves from 61.3% to 66.4%, and TAP-Vid-Kinetics from 57.2% to 61.5%.
+              To endow models with greater understanding of physics and motion, it is useful to enable them to perceive how solid surfaces move and deform in real scenes. This can be formalized as Tracking-Any-Point (TAP), which requires the algorithm to be able to track any point corresponding to a solid surface in a video, potentially densely in space and time. Large-scale ground-truth training data for TAP is only available in simulation, which currently has limited variety of objects and motion. In this work, we demonstrate how large-scale, unlabeled, uncurated real-world data can improve a TAP model with minimal architectural changes, using a self-supervised student-teacher setup. We demonstrate state-of-the-art performance on the TAP-Vid benchmark surpassing previous results by a wide margin: for example, TAP-Vid-DAVIS performance improves from 61.3% to 67.4%, and TAP-Vid-Kinetics from 57.2% to 62.5%.
             </p>
           </div>
         </div>
@@ -204,14 +204,17 @@
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <div class="hero-body-justified"><b>TAP-Vid DAVIS:</b>
-            We sample queries using the query-first approach; note that some points begin very close to
-            object boundaries which means the methods occasionally track the wrong object.  We notice that the main
+          <div class="hero-body-justified"><b>TAP-Vid DAVIS:</b> We plot TAPIR and BootsTAP points alongside their ground truth, sampling query points using the query-first approach.
+            The main
             improvements come from more accurate occlusion prediction
             and more precise localization. In addition, we observe that BootsTAPIR is more robust to large scale changes
             than the baseline TAPIR model.  In the displays, we don't plot points that the methods mark as occluded.  We include
             a line segment connecting the ground truth to the prediction where the ground truth is marked visible, showing the scale
-            of the errors.  If a method predicts a point as visible when the ground truth is occluded, we plot the prediction with an x.</div>
+            of the errors.  If a method predicts a point as visible when the ground truth is occluded, we plot the prediction with an x.
+            Note that some points begin very close to
+            object boundaries which means the methods occasionally track the wrong object.
+            For this and other visualizations, the algorithm tracks on videos downsampled to 256-by-256; we plot them on the original resolution only for appearance.
+          </div>
           <div class="container" id="container-carousel 2">
             <div id="results-carousel 2" class="carousel results-carousel">
               <!-- Card 1 -->
@@ -390,7 +393,7 @@
     <div class="container is-max-desktop">
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
-          <div class="hero-body-justified"><b>RoboTAP:</b> Finally, we show some examples from RoboTAP where BootsTAPIR improves performance.
+          <div class="hero-body-justified"><b>RoboTAP:</b> We show some examples from the RoboTAP dataset where BootsTAPIR improves performance.
           We use the same plotting scheme as for TAP-Vid-DAVIS, as there is ground truth available in this dataset.</div>
           <div class="container" id="container-carousel 2">
             <div id="results-carousel 2" class="carousel results-carousel">
@@ -538,7 +541,7 @@
       <div class="is-centered has-text-centered">
         <div class="is-four-fifths">
           <div class="hero-body-justified"><b>Libero:</b> In this experiment, we apply TAPIR (left), BootsTAPIR (center), and
-            a BootsTAPIR further finetuned on Libero (BootsTAPIR-Libero; see supplementary pdf) to Libero videos.  This dataset has
+            a BootsTAPIR further finetuned on Libero (BootsTAPIR-Libero) to Libero videos.  This dataset has
             no ground truth, so we apply the algorithms to query points sampled in a semi-dense grid on the first
             frame.  We see that BootsTAP on internet data improves performance, especially scale invariance, but
             training specifically on Libero improves results even further.
@@ -702,7 +705,7 @@
             the first frame, therefore producing a set of points on task-relevant objects inspired by <a
               href="https://robotap.github.io/">RoboTAP</a> (note that this selection process is imperfect, and we
             expect real-world query point selection to be more sophisticated; this is just to prevent clutter in the
-            display). We resize videos to 256 pixels square before applying both TAPIR and BootsTAPIR, zero shot.
+            display).
           </div>
           <div class="container" id="container-carousel 2">
             <div id="results-carousel 2" class="carousel results-carousel">
