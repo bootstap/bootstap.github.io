@@ -5136,7 +5136,7 @@ print {
     background-color: transparent;
     max-width: 100%;
     overflow: hidden;
-    position: relative
+    position: relative;
 }
 
 .card-header {
@@ -5169,7 +5169,7 @@ print {
 
 .card-image {
     display: block;
-    position: relative
+    position: relative;
 }
 
 .card-content {
